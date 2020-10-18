@@ -20,7 +20,7 @@ pipeline{
 		stage('JAR')
 		{
 			when{
-				branch 'Development'
+				branch 'master'
 			}
 			
 			steps{
@@ -30,6 +30,9 @@ pipeline{
 			
 			}
 		stage('build image'){
+			when{
+				branch 'master'
+			}
 				
 			steps{
 			     sh " docker build -t  himanshu1018/assignments ."
