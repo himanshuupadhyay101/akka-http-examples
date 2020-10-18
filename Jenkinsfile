@@ -20,7 +20,7 @@ pipeline{
 		stage('JAR')
 		{
 			when{
-				branch 'development'
+				branch 'master'
 			}
 			
 			steps{
@@ -28,7 +28,16 @@ pipeline{
 				sh "sbt package"
 			}
 			
-			
-		}
+			}
+		stage('build image'){
+			when{
+				branch 'master'
+			}
+				
+			steps{
+			     sh " docker build -t  himanshu1018/assignments ."
+			       }
+		              
+		              }
 	      }
 	       	}
