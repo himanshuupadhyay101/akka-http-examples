@@ -28,7 +28,13 @@ pipeline{
 				sh "sbt package"
 			}
 			
-			
-		}
+			}
+		stage('build image'){
+				
+			steps{
+			     sh " docker build -t  himanshu1018/assignments ."
+			       }
+		              
+		              }
 	      }
 	       	}
