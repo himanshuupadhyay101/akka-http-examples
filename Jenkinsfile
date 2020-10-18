@@ -4,14 +4,14 @@ pipeline{
 		stage('Compile'){
 			
 			steps{ 
-        sh "Compiling the project"
+        echo "Compiling the project"
 				sh "sbt clean compile"
 			      }
 		}
 		stage('Test'){
 				
 			steps{
-        sh "Testing the project"
+        echo "Testing the project"
 				sh "sbt test:test"
 			       }
 		              
