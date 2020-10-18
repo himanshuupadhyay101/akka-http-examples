@@ -25,7 +25,7 @@ pipeline{
 			
 			steps{
 				
-				sh "sbt package"
+				sh "sbt assembly"
 			}
 			
 			}
