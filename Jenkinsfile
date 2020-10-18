@@ -4,7 +4,7 @@ pipeline{
 		stage('Compile'){
 			
 			steps{ 
-       echo "Compiling the project""
+       echo "Compiling the project"
 				sh "sbt clean compile"
 			      }
 		}
