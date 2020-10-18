@@ -19,6 +19,9 @@ pipeline{
 		
 		stage('JAR')
 		{
+			when{
+				branch 'Development'
+			}
 			
 			steps{
 				
