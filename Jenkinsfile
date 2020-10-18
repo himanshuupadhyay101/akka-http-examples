@@ -4,11 +4,11 @@ pipeline{
 		stage('Compile'){
 			
 			steps{ 
-        echo "Compiling the project"
+       echo "Compiling the project""
 				sh "sbt clean compile"
 			      }
 		}
-		stage('Test'){
+		stage('Testing'){
 				
 			steps{
         echo "Testing the project"
@@ -16,5 +16,16 @@ pipeline{
 			       }
 		              
 		               }
+		
+		stage('JAR')
+		{
+			
+			steps{
+				
+				sh "sbt package"
+			}
+			
+			
+		}
 	      }
 	       	}
