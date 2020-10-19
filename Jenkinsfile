@@ -38,7 +38,7 @@ stages{
 		
 	stage('JAR')
 		{
-			when{   echo "Creatinf the package"
+			when{   
 				branch 'master'
 			}
 			
