@@ -85,7 +85,7 @@ pipeline{
 				   kubectl create -f deploy.yml 
 				   
 				   
-				  )
+				 // )
 				
 			       }
 		              
