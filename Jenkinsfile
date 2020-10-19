@@ -60,7 +60,9 @@ pipeline{
 			steps{
 			   kubernetesDeploy(
 				   configs: 'deploy.yml',
+				   
 				   kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+				   
 				   enableConfigSubstitution: true
 				   
 				   
