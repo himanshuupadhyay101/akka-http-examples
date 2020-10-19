@@ -76,12 +76,12 @@ pipeline{
 		              
 		              }
 		
-		 stage('Deploy to K8'){
-				when{
-				branch 'master'
+		// stage('Deploy to K8'){
+			//	when{
+			//	branch 'master'
 			             }
 			
-			steps{
+			//steps{
 			// kubernetesDeploy(
 				  // configs: 'deploy.yml',
 				   
@@ -90,15 +90,20 @@ pipeline{
 			// enableConfigSubstitution: true
 			         
 				 //sh  "pwd" 
-				 sh "kubectl create -f deploy.yml"  
+				  
 				   
 				 // )
 				
-			       }
+			     //  }
 		              
-		              }
-		
-		
+		             // }
+		post {
+     always {
+     mail to: "himanshu.upadhayay@knoldus.com",
+     subject: "Image build succesfully",
+     body: "Hello successfull completion f task, ${env.JOB_NAME} has been build successfully"
+             }
+		}
 		
 	      }
 	       	}
