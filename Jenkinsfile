@@ -87,7 +87,7 @@ pipeline{
 		// stage('Deploy to K8'){
 			//	when{
 			//	branch 'master'
-			             }
+			         //    }
 			
 			//steps{
 			// kubernetesDeploy(
