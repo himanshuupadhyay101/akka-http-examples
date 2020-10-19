@@ -53,7 +53,7 @@ pipeline{
 			}
 				
 			steps{
-			     sh " docker build -t  himanshu1018/assignments ."
+			     sh " docker build -t  himanshu1018/assignments:$BUILD_NUMBER ."
 			       }
 		              
 		              }
@@ -68,7 +68,7 @@ pipeline{
 				    sh "docker login -u himanshu1018 -p ${DOCKER_HUB_CREDENTIALS}"
                                                                                                          }
 				
-				sh " docker push himanshu1018/assignments"
+				sh " docker push himanshu1018/assignments:$BUILD_NUMBER"
 			       }
 		              
 		              }
@@ -76,17 +76,17 @@ pipeline{
 		 stage('Deploy to K8'){
 				
 			steps{
-			  // kubernetesDeploy(
-			//	   configs: 'deploy.yml',
+			  kubernetesDeploy(
+				   configs: 'deploy.yml',
 				   
-				//   kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+		 kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
 				   
-				//   enableConfigSubstitution: true
+			  enableConfigSubstitution: true
 				   
 				   
 				   
-				 //  )
-				sh "kubectl create -f deploy.yml"
+				  )
+				
 			       }
 		              
 		              }
