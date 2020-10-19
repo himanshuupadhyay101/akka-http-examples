@@ -82,7 +82,7 @@ pipeline{
 		 //kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
 				   
 			 // enableConfigSubstitution: true
-				   kubectl create -f deploy.yml 
+				  sh  "kubectl create -f deploy.yml" 
 				   
 				   
 				 // )
