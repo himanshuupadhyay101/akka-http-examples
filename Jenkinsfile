@@ -82,16 +82,16 @@ pipeline{
 			             }
 			
 			steps{
-			 kubernetesDeploy(
-				   configs: 'deploy.yml',
+			// kubernetesDeploy(
+				  // configs: 'deploy.yml',
 				   
-		 kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+		// kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
 				   
-			 enableConfigSubstitution: true
-				 // sh  "kubectl create -f deploy.yml" 
+			// enableConfigSubstitution: true
+				 sh  "kubectl create -f /var/lib/jenkins/workspace/Capstone_master/deploy.yml" 
 				   
 				   
-				  )
+				 // )
 				
 			       }
 		              
