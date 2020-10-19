@@ -1,39 +1,13 @@
----
-apiVersion: apps/v1
-kind: Deployment
-metadata: 
-  name: image-deploy
-  labels: capstone
-    app: 
-spec: 
-  replicas: 1
-  selector:
-    matchLabels:
-      app: capstone
-
-  template: 
-    metadata: 
-      labels: 
-        app: capstone
-    spec:
-      containers:
-      - name: capstone
-        image: himanshu1018/assignments
-        ports: 
-        - containerPort: 8080
-        
----
+kind: Pod
 apiVersion: v1
-kind: Service
 metadata:
-  name: lbs
-  labels:
-    app: capstone
+  name: capstonepod
 spec:
 
-  type: LoadBalancer
-  ports:
-  - port: 9200
-    name: http
-  selector:
-    app: capstone
+  containers:
+    - name: capstone
+      image: himanshu1018/assignments:$BUILD_NUMBER
+      ports:
+        - containerPort: 8080
+
+
