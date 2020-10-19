@@ -86,27 +86,27 @@ stages{
 		              
 		              }
 		
-		// stage('Deploy to K8'){
-			//	when{
-			//	branch 'master'
+		stage('Deploy to K8'){
+			when{
+				branch 'master'
 			         //    }
 			
-			//steps{
-			// kubernetesDeploy(
-				  // configs: 'deploy.yml',
+			steps{
+			kubernetesDeploy(
+				  configs: 'deploy.yml',
 				   
-		// kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+		 kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
 				   
-			// enableConfigSubstitution: true
+			 enableConfigSubstitution: true
 			         
 				 //sh  "pwd" 
 				  
 				   
-				 // )
+				  )
 				
-			     //  }
+			      }
 		              
-		             // }
+		              }
 
 		
 	   
