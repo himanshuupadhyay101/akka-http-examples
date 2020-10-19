@@ -89,7 +89,7 @@ pipeline{
 				   
 			// enableConfigSubstitution: true
 			         
-				 sh  "kubectl create -f /var/lib/jenkins/workspace/Capstone_master/deploy.yml" 
+				 sh  "pwd" 
 				   
 				   
 				 // )
