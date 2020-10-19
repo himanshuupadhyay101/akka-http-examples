@@ -60,11 +60,11 @@ branch 'master'
 			  )
 		}
             post {
-                    mail to: "himanshu.upadhayay@knoldus.com",
+		    always{       mail to: "himanshu.upadhayay@knoldus.com",
                      subject: "Image build succesfully",
                      body: "Hello successfull completion f task, ${env.JOB_NAME} has been build successfully"
                   }
-		  
+	    }
 	    }
   }
 
