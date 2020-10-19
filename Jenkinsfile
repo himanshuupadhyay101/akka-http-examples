@@ -76,20 +76,14 @@ stages{
 				sh " docker push himanshu1018/assignments:$BUILD_NUMBER"
 			       }
 		     
-		     		post {
-     always {
-     mail to: "himanshu.upadhayay@knoldus.com",
-     subject: "Image build succesfully",
-     body: "Hello successfull completion f task, ${env.JOB_NAME} has been build successfully"
-             }
-		}
+		     		
 		              
 		              }
 		
 		stage('Deploy to K8'){
 			when{
 				branch 'master'
-			         //    }
+			             }
 			
 			steps{
 			kubernetesDeploy(
@@ -105,7 +99,13 @@ stages{
 				  )
 				
 			      }
-		              
+		              post {
+     always {
+     mail to: "himanshu.upadhayay@knoldus.com",
+     subject: "Image build succesfully",
+     body: "Hello successfull completion f task, ${env.JOB_NAME} has been build successfully"
+             }
+		}
 		              }
 
 		
