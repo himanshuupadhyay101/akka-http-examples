@@ -45,7 +45,7 @@ branch 'master'
           sh " docker push himanshu1018/assignments:$BUILD_NUMBER"
 			       }
 	   }
-		
+}	
 stage('Deploy to K8')
 {
 when{
