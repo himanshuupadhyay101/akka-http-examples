@@ -88,7 +88,8 @@ pipeline{
 		// kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
 				   
 			// enableConfigSubstitution: true
-				 sh  "kubectl create -f /var/lib/jenkins/workspace/Capstone_master/deploy.yml" 
+			         sh "cd Capstone_master"
+				 sh  "kubectl create -f deploy.yml" 
 				   
 				   
 				 // )
