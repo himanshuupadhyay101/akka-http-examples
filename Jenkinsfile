@@ -54,5 +54,23 @@ pipeline{
 			       }
 		              
 		              }
+		
+		 stage('Deploy to K8'){
+				
+			steps{
+			   kubernetesDeploy(
+				   configs: 'deploy.yml',
+				   kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+				   enableConfigSubstitution: true
+				   
+				   
+				   
+				   )
+			       }
+		              
+		              }
+		
+		
+		
 	      }
 	       	}
