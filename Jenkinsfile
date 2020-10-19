@@ -1,19 +1,20 @@
 pipeline{
 	
 	
-	agent any
+agent any
 	
 	
 	
-	stages{
+stages{
 		
 		
-		stage('Compile'){
+	stage('Compile'){
 			
 			 
 			
-			steps{ 
-       echo "Compiling the project"
+	steps{ 
+       
+		echo "Compiling the project"
 				
 				
 				
@@ -22,7 +23,7 @@ pipeline{
 		}
 		
 		
-		stage('Testing'){
+	stage('Testing'){
 				
 			
 			
@@ -30,29 +31,30 @@ pipeline{
         
 				
 				echo "Testing the project"
-				sh "sbt test:test"
+				sh "sbt test"
 			       }
 		              
 		               }
 		
-		stage('JAR')
+	stage('JAR')
 		{
-			when{
+			when{   echo "Creatinf the package"
 				branch 'master'
 			}
 			
 			steps{
 				
-				sh "sbt assembly"
+				sh "sbt assembly"                                                                  //sbt package vs sbt assembly
 			}
 			
 			}
-		stage('build image'){
+	stage('build image'){
 			when{
 				branch 'master'
 			}
 				
-			steps{
+			steps{ 
+				echo "Building the image "
 			     sh " docker build -t  himanshu1018/assignments:$BUILD_NUMBER ."
 			       }
 		              
@@ -60,14 +62,14 @@ pipeline{
 		
 		
 		
-	     stage('push image'){
+         stage('push image'){
 				when{
 				branch 'master'
 			             }
 			
 			steps{
 			    withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
-  
+                                     echo "pushing the image to the dockerhub registry"
 				    sh "docker login -u himanshu1018 -p ${DOCKER_HUB_CREDENTIALS}"
                                                                                                          }
 				
