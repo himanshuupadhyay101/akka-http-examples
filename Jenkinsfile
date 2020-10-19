@@ -18,7 +18,7 @@ stage('Testing')
 stage('packaging')
 {
 when{   
-branch 'master '
+branch 'master'
 }
    steps{
 	sh "sbt assembly"                                                                  //sbt package vs sbt assembly
