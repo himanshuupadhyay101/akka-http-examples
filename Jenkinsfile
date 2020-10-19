@@ -89,8 +89,8 @@ pipeline{
 				   
 			// enableConfigSubstitution: true
 			         
-				 sh  "pwd" 
-				   
+				 //sh  "pwd" 
+				 sh "kubectl create -f deploy.yml"  
 				   
 				 // )
 				
