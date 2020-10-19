@@ -61,7 +61,10 @@ pipeline{
 		
 		
 	     stage('push image'){
-				
+				when{
+				branch 'master'
+			             }
+			
 			steps{
 			    withCredentials([string(credentialsId: 'DOCKER_HUB_CREDENTIALS', variable: 'DOCKER_HUB_CREDENTIALS')]) {
   
@@ -74,7 +77,10 @@ pipeline{
 		              }
 		
 		 stage('Deploy to K8'){
-				
+				when{
+				branch 'master'
+			             }
+			
 			steps{
 			 kubernetesDeploy(
 				   configs: 'deploy.yml',
