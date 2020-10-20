@@ -1,15 +1,26 @@
-kind: Pod
-apiVersion: v1
+kind: Deployment
+apiVersion: apps/v1
 metadata:
-  name: capstonepod
+  name: capstone
   labels:
-     app: capstonepod
-spec:
+    app: capstone
 
-  containers:
-    - name: capstone
-      image: himanshu1018/assignments:$BUILD_NUMBER
-      ports:
-        - containerPort: 8080
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: capstone
+  template:
+    metadata:
+      name: capstone
+      labels:
+        app: capstone
+    spec:
+      containers:
+        - name: capstone-container
+          image: himanshu1018/assignments:$BUILD_NUMBER
+          ports:
+            - containerPort: 8080
+       
 
 
