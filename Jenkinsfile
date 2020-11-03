@@ -53,11 +53,14 @@ branch 'master'
   }
 			
         steps{
-	kubernetesDeploy(
-	    configs: 'deploy.yml',
-             kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
-	     enableConfigSubstitution: true
-			  )
+	//kubernetesDeploy(
+	//    configs: 'deploy.yml',
+        //     kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',
+	 //    enableConfigSubstitution: true
+	//		  )
+		sh "pwd"
+		sh "kubectl delete -f deployment.yml"
+        sh "kubectl create -f deployment.yml"
 		}
             post {
 		    always{       mail to: "himanshu.upadhayay@knoldus.com",
