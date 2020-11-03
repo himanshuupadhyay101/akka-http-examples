@@ -59,7 +59,7 @@ branch 'master'
 	    // enableConfigSubstitution: true
 		//	  )
 		sh "pwd"
-		sh "kubectl delete -f deploy.yml"
+		//sh "kubectl delete -f deploy.yml"
         sh "kubectl create -f deploy.yml"
 		}
             post {
