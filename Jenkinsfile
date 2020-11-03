@@ -60,7 +60,7 @@ branch 'master'
 		//	  )
 		sh "pwd"
 		//sh "kubectl delete -f deploy.yml"
-        sh "kubectl create -f deploy.yml"
+        sh "kubectl create -f deploy.yaml"
 		}
             post {
 		    always{       mail to: "himanshu.upadhayay@knoldus.com",
